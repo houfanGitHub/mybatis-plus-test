@@ -1,9 +1,6 @@
 package com.mybatis.plus.entity;
 
-import com.baomidou.mybatisplus.annotation.EnumValue;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.Version;
+import com.baomidou.mybatisplus.annotation.*;
 import com.mybatis.plus.entity.enums.GenderEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
@@ -42,10 +39,29 @@ public class User extends BaseEntity {
     @ApiModelProperty(value = "邮箱")
     private String email;
 
+    @ApiModelProperty(value = "性别")
+    private GenderEnum gender;
+
+    @Version
+    private long version;
+
     public User(String name, Integer age, String email) {
         this.name = name;
         this.age = age;
         this.email = email;
     }
 
+    public User(Long id, String name, Integer age, String email) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.email = email;
+    }
+
+    public User(String name, Integer age, String email, GenderEnum gender) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.gender = gender;
+    }
 }

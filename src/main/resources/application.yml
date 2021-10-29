@@ -10,6 +10,9 @@ spring:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+mybatis-plus:
+  typeEnumsPackage: com.mybatis.plus.entity.enums
+
 logging:
   level:
     com.mybatis.plus: debug
