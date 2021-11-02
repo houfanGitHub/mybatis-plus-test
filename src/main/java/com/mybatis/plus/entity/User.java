@@ -45,6 +45,10 @@ public class User extends BaseEntity {
     @Version
     private long version;
 
+    @TableField(fill = FieldFill.INSERT)
+    @TableLogic
+    private Integer deleted;
+
     public User(String name, Integer age, String email) {
         this.name = name;
         this.age = age;
@@ -59,9 +63,13 @@ public class User extends BaseEntity {
     }
 
     public User(String name, Integer age, String email, GenderEnum gender) {
-        this.name = name;
-        this.age = age;
-        this.email = email;
+        this(name, age, email);
         this.gender = gender;
+    }
+
+    public User(Long id, String name, Integer age, String email, GenderEnum gender, long version) {
+        this(name, age, email, gender);
+        this.id = id;
+        this.version = version;
     }
 }
